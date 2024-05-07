@@ -371,9 +371,6 @@
         <item>evdo:4094,87380,524288,4096,16384,262144</item>
     </string-array>
 
-    <!-- Should the pinner service pin the Home application? -->
-    <bool name="config_pinnerHomeApp">true</bool>
-
     <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
          device from the display on/off state.
 
