@@ -463,24 +463,24 @@ vendor/lib64/libcvp_common.so
 vendor/lib64/libcvp_stub.so
 vendor/lib64/vendor.qti.hardware.cvp@1.0.so
 
-# DPM - from vayu
-system_ext/bin/dpmd|097a21f71912ba9a2e0d37d5ee0e62469addd0ec
+# DPM - from moonstone
+system_ext/bin/dpmd|5a42bc4e5c841573579e0718d6e80e688767eeed
 system_ext/etc/dpm/dpm.conf|95e27da8c989e96c6faea6f0697bce11955b62a5
 system_ext/etc/init/dpmd.rc|738b638ff04cda368e22c03e16baf90ba157a6fc
 system_ext/etc/permissions/com.qti.dpmframework.xml|c4b7ad0879d00c1eba4f3fe3a88ddb8aa153629a
 system_ext/etc/permissions/dpmapi.xml|255903759a60a31c0876ec004e74554c753270fe
-system_ext/framework/com.qti.dpmframework.jar|06871af3c26d8357a250276948112d8eae105e01
-system_ext/framework/dpmapi.jar|556f859768e370414eb91b0e5aaab619d655e2d8
-system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so|62e5bfe5c7525844a828e89360fde9694a7cdf96
-system_ext/lib64/libdpmctmgr.so|9d13e5ae9882f5b7e6ac31a9d073a66a27d1c465
-system_ext/lib64/libdpmfdmgr.so|b705b098462e1198fc24175732d687142cc26562
-system_ext/lib64/libdpmframework.so|c3d8d6f1745c19d29466e9de823ff56f9f8f6993
-system_ext/lib64/libdpmtcm.so|57b6c42d581305d8ef16aa127cd4cd1672d2e7f1
-system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk|92ed0f5e3ca5b30691e7036b5f0920c62185e602
-vendor/bin/dpmQmiMgr|d7b0b3aad408e4a492a2d79d37f55ecd78d15458
+system_ext/framework/com.qti.dpmframework.jar|4fc38f534c788b80b432b385e07973bdd6e8c98f
+system_ext/framework/dpmapi.jar|c379f7a671439737fbff03411f28891d0f9313c9
+system_ext/lib64/com.qualcomm.qti.dpm.api@1.0.so|3e9786c8263de4135926a91083b70a737fc1d28b
+system_ext/lib64/libdpmctmgr.so|206949728b98a513683468209dbce86ed29412b8
+system_ext/lib64/libdpmfdmgr.so|da636fca9a9a91a897d17fd519448b10053a696b
+system_ext/lib64/libdpmframework.so|d974f04f110b3c1a1282d78bb0ff8a29dc022439
+system_ext/lib64/libdpmtcm.so|5521469cac3a2bec3da66cd36637df83ee59b97e
+system_ext/priv-app/dpmserviceapp/dpmserviceapp.apk|68c3c5c13cdba3575579b5081089037bada63d30
+vendor/bin/dpmQmiMgr|2da835936abc23f39903e68a63c5e7303edac1e7
 vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
-vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|188222f7cda270cad18757cf59710978f8657105
-vendor/lib64/libdpmqmihal.so|84dad3cd086791473878b353ef5aef6b6d495137
+vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so|3a407eb9cfe4bda97d793d0b671389aee7afe48f
+vendor/lib64/libdpmqmihal.so|2656dc27e2da38a482d639701647520d259ff50b
 
 # DRM
 vendor/bin/qseecomd
