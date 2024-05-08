@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "TelephonyResCommon",
-    product_specific: true,
+    name: "MiatollSettings",
+    vendor: true,
 }

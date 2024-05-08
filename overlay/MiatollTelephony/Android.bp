@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "SM6250SystemUI",
-    vendor: true,
+    name: "MiatollTelephony",
+    product_specific: true,
 }

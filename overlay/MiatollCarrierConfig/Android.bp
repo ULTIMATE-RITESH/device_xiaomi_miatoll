@@ -4,7 +4,7 @@
 //
 
 runtime_resource_overlay {
-    name: "CarrierConfigResCommon",
+    name: "MiatollCarrierConfig",
     aaptflags: ["--keep-raw-values"],
     product_specific: true,
 }

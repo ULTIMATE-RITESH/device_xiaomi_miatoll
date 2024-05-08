@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "MiatollSettingsOverlay",
+    name: "MiatollSystemUI",
     vendor: true,
 }

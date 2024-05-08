@@ -4,10 +4,10 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.carrierconfig.overlay.common">
+    package="com.android.systemui.overlay.miatoll">
 
     <overlay
         android:isStatic="true"
         android:priority="100"
-        android:targetPackage="com.android.carrierconfig" />
+        android:targetPackage="com.android.systemui" />
 </manifest>

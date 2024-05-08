@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "WifiOverlay",
+    name: "MiatollWifi",
     vendor: true
 }
