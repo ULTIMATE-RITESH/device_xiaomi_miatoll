@@ -209,6 +209,8 @@ persist.vendor.sensors.enable.mag_filter=true
 persist.vendor.sensors.support_direct_channel=false
 
 # USB
+vendor.usb.controller=a600000.dwc3
+vendor.usb.device=a600000.ssusb
 vendor.usb.diag.func.name=diag
 vendor.usb.dpl.inst.name=dpl
 vendor.usb.qdss.inst.name=qdss
