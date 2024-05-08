@@ -147,8 +147,9 @@ on charger
     mkdir /mnt/vendor/persist/subsys 0770 root system
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
-    chown system system /sys/class/leds/red/brightness
-    chmod 0666 /sys/class/leds/red/brightness
+    chown system system /sys/class/leds/white/brightness
+    chmod 0666 /sys/class/leds/white/brightness
+    write /sys/class/leds/white/brightness 255
     chmod 0666 /sys/class/backlight/panel0-backlight/brightness
     start vendor.power_off_alarm
     start qcom-post-boot-atoll
