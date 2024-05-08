@@ -70,4 +70,7 @@
     <!-- Indicate the device support request channel on Wi-Fi Aware data-path. -->
     <bool name="config_wifiSupportChannelOnDataPath">true</bool>
 
+    <!-- Do not translate. Default access point SSID used for tethering -->
+    <string name="wifi_tether_configure_ssid_default" translatable="false">Made_with_love_by_RITESH</string>
+
 </resources>
