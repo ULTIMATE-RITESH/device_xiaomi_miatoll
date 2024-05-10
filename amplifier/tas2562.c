@@ -32,11 +32,7 @@
 #include "platform.h"
 #include "platform_api.h"
 
-#define TAS2562_CAL_FILE "/mnt/vendor/persist/audio/tas2562_cal.bin"
-
-#define TAS2562_SET_TCAL_LEFT "TAS2562_SET_TCAL_LEFT"
 #define TAS2562_ALGO_PROFILE "TAS2562_ALGO_PROFILE"
-#define TAS2562_SET_RE_LEFT "TAS2562_SET_RE_LEFT"
 #define TAS2562_SMARTPA_ENABLE "TAS2562_SMARTPA_ENABLE"
 #define TAS2562_SET_SPKID_LEFT "TAS2562_SET_SPKID_LEFT"
 
@@ -71,55 +67,7 @@ typedef struct tas2562_amp {
     tas2562_profile_t profile;
     struct audio_device* adev;
     struct pcm* pcm;
-    int re;
-    int tcal;
 } tas2562_amp_t;
-
-static int tas2562_parse_cal_file(int* re, int* tcal) {
-    char *ptr, *tok1, *tok2;
-    FILE* cal_file;
-    char buf[256];
-    int rc = 0;
-
-    if (!re || !tcal) return -EINVAL;
-
-    memset(buf, 0, sizeof(buf));
-    cal_file = fopen(TAS2562_CAL_FILE, "r");
-    if (!cal_file) {
-        ALOGE("%s: Failed to open calibration file: %d", __func__, errno);
-        return -ENOENT;
-    }
-
-    if (!fread(buf, 1, sizeof(buf) - 1, cal_file)) {
-        if (ferror(cal_file)) {
-            ALOGE("%s: Failed to read calibration file", __func__);
-            rc = -EIO;
-        } else {
-            ALOGE("%s: Calibration file is empty", __func__);
-            rc = -ENODATA;
-        }
-    }
-    fclose(cal_file);
-
-    if (rc) return rc;
-
-    tok1 = strtok_r(buf, ";", &ptr);
-    if (!tok1) goto format_err;
-
-    tok2 = strtok_r(ptr, ";", &ptr);
-    if (!tok2) goto format_err;
-
-    *re = (int)(atof(tok1) * 524288.0f);
-    *tcal = (int)atof(tok2);
-
-    ALOGI("%s: Read calibration: Re=%d, Tcal=%d", __func__, *re, *tcal);
-
-    return 0;
-
-format_err:
-    ALOGE("%s: Failed to parse calibration file", __func__);
-    return -EINVAL;
-}
 
 static int tas2562_mixer_set_enum_by_string(struct mixer* mixer, const char* name,
                                             const char* value) {
@@ -258,10 +206,6 @@ static int tas2562_start_feedback(tas2562_amp_t* tas2562, uint32_t device) {
     ALOGI("%s: Using profile %s", __func__, profile);
     tas2562_mixer_set_enum_by_string(mixer, TAS2562_ALGO_PROFILE, profile);
 
-    if (tas2562->tcal != -1) tas2562_mixer_set_value(mixer, TAS2562_SET_TCAL_LEFT, tas2562->tcal);
-
-    if (tas2562->re != -1) tas2562_mixer_set_value(mixer, TAS2562_SET_RE_LEFT, tas2562->re);
-
     tas2562_mixer_set_enum_by_string(mixer, TAS2562_SMARTPA_ENABLE, "ENABLE");
 
     pcm_id = platform_get_pcm_device_id(usecase->id, PCM_CAPTURE);
@@ -378,10 +322,6 @@ static int tas2562_module_open(const hw_module_t* module, const char* name, hw_d
     tas2562->amp_dev.set_feedback = tas2562_set_feedback;
 
     tas2562->profile = PROFILE_MUSIC;
-    tas2562->re = -1;
-    tas2562->tcal = -1;
-
-    tas2562_parse_cal_file(&tas2562->re, &tas2562->tcal);
 
     *device = (hw_device_t*)tas2562;
 
