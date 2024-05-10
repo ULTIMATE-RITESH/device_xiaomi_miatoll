@@ -4,3 +4,8 @@ allow platform_app vendor_hal_camerapostproc_xiaomi:fd *;
 allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
 
 typeattribute platform_app vendor_hal_camerapostproc_xiaomi_client;
+
+# Dolby
+allow platform_app hal_dms_hwservice:hwservice_manager find;
+binder_call(platform_app, hal_dms_default)
+get_prop(platform_app, audio_config_prop)
