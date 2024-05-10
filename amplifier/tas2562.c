@@ -32,9 +32,8 @@
 #include "platform.h"
 #include "platform_api.h"
 
-#define TAS2562_ALGO_PROFILE "TAS2562_ALGO_PROFILE"
-#define TAS2562_SMARTPA_ENABLE "TAS2562_SMARTPA_ENABLE"
-#define TAS2562_SET_SPKID_LEFT "TAS2562_SET_SPKID_LEFT"
+#define TAS2562_ALGO_PROFILE "TAS25XX_ALGO_PROFILE"
+#define TAS2562_SMARTPA_ENABLE "TAS25XX_SMARTPA_ENABLE"
 
 typedef enum tas2562_profile {
     PROFILE_NONE = -1,
@@ -88,28 +87,6 @@ static int tas2562_mixer_set_enum_by_string(struct mixer* mixer, const char* nam
     }
 
     ALOGI("%s: Set mixer ctl '%s' to enum '%s'", __func__, name, value);
-
-    return ret;
-}
-
-static int tas2562_mixer_set_value(struct mixer* mixer, const char* name, int value) {
-    struct mixer_ctl* ctl;
-    int ret = 0;
-
-    ctl = mixer_get_ctl_by_name(mixer, name);
-    if (!ctl) {
-        ALOGE("%s: Could not get mixer ctl '%s'", __func__, name);
-        return -EINVAL;
-    }
-
-    ret = mixer_ctl_set_value(ctl, 0, value);
-    if (ret < 0) {
-        ALOGE("%s: Failed to set mixer ctl '%s' to '%d'", __func__, name, value);
-
-        return ret;
-    }
-
-    ALOGI("%s: Set mixer ctl '%s' to '%d'", __func__, name, value);
 
     return ret;
 }
@@ -199,8 +176,6 @@ static int tas2562_start_feedback(tas2562_amp_t* tas2562, uint32_t device) {
 
     enable_snd_device(adev, SND_DEVICE_IN_CAPTURE_VI_FEEDBACK);
     enable_audio_route(adev, usecase);
-
-    tas2562_mixer_set_value(mixer, TAS2562_SET_SPKID_LEFT, 0);
 
     profile = tas2562_profile_names[tas2562->profile];
     ALOGI("%s: Using profile %s", __func__, profile);
