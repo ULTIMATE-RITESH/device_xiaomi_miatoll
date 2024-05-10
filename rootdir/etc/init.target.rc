@@ -72,6 +72,10 @@ on post-fs-data
     mkdir /data/vendor/nnhal 0700 system system
     mkdir /data/vendor/mac_addr 0771 system system
 
+    # Dolby
+    mkdir /data/vendor/dolby 0770 media media
+    mkdir /data/vendor/multimedia 0775 system system
+
 on boot
     chown system system /sys/class/drm/card0-DSI-1/disp_param
     chmod 0664 /sys/class/drm/card0-DSI-1/disp_param
