@@ -56,9 +56,6 @@ static const struct pcm_config tas2562_pcm_config = {
         .period_size = 256,
         .period_count = 4,
         .format = PCM_FORMAT_S24_LE,
-        .start_threshold = 0,
-        .stop_threshold = INT_MAX,
-        .avail_min = 40,
 };
 
 typedef struct tas2562_amp {
