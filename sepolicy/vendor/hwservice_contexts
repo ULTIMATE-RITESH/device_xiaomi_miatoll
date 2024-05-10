@@ -1,2 +1,6 @@
+# Camera
+vendor.xiaomi.hardware.misys::IMiSys                                                     u:object_r:hal_misys_hwservice:s0
+
+# Fingerprint
 vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemon                  u:object_r:hal_fingerprint_hwservice:s0
 vendor.goodix.hardware.biometrics.fingerprint::IGoodixFingerprintDaemonExt               u:object_r:hal_fingerprint_hwservice:s0
