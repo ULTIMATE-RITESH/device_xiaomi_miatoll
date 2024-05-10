@@ -2659,6 +2659,7 @@
     </path>
 
     <path name="spkr-vi-record">
+        <ctl name="TERT_MI2S_TX Channels" value="Two" />
     </path>
 
     <!-- These are actual sound device specific mixer settings -->
