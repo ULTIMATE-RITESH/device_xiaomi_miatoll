@@ -38,16 +38,18 @@
 typedef enum tas2562_profile {
     PROFILE_NONE = -1,
     PROFILE_MUSIC = 0,
-    PROFILE_RING,
     PROFILE_VOICE,
-    PROFILE_MAX = PROFILE_VOICE,
+    PROFILE_VOIP,
+    PROFILE_RINGTONE,
+    PROFILE_MAX = PROFILE_RINGTONE,
 } tas2562_profile_t;
 
 #define TAS2562_PROFILE(x) [PROFILE_##x] = #x
 static const char* tas2562_profile_names[] = {
         TAS2562_PROFILE(MUSIC),
-        TAS2562_PROFILE(RING),
         TAS2562_PROFILE(VOICE),
+        TAS2562_PROFILE(VOIP),
+        TAS2562_PROFILE(RINGTONE),
 };
 
 static const struct pcm_config tas2562_pcm_config = {
@@ -127,11 +129,13 @@ static int tas2562_set_mode(amplifier_device_t* device, audio_mode_t mode) {
             tas2562->profile = PROFILE_MUSIC;
             break;
         case AUDIO_MODE_RINGTONE:
-            tas2562->profile = PROFILE_RING;
+            tas2562->profile = PROFILE_RINGTONE;
             break;
         case AUDIO_MODE_IN_CALL:
-        case AUDIO_MODE_IN_COMMUNICATION:
             tas2562->profile = PROFILE_VOICE;
+            break;
+        case AUDIO_MODE_IN_COMMUNICATION:
+            tas2562->profile = PROFILE_VOIP;
             break;
         default:
             break;
