@@ -1,1 +1,6 @@
 allow platform_app hal_misys_hwservice:hwservice_manager find;
+allow platform_app vendor_hal_camerapostproc_xiaomi:binder { call transfer };
+allow platform_app vendor_hal_camerapostproc_xiaomi:fd *;
+allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+
+typeattribute platform_app vendor_hal_camerapostproc_xiaomi_client;
