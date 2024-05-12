@@ -272,17 +272,13 @@ PRODUCT_PACKAGES += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
+    MiatollAperture \
     MiatollCarrierConfig \
     MiatollFrameworks \
     MiatollSettings \
     MiatollSystemUI \
     MiatollTelephony \
     MiatollWifi
-
-PRODUCT_PACKAGES += \
-    SM6250Aperture \
-    SM6250LineageDialer \
-    SM6250LineageSDK
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true

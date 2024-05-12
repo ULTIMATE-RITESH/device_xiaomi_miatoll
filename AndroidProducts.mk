@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_miatoll.mk
+    $(LOCAL_DIR)/genesis_miatoll.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_miatoll-ap1a-user \
-    lineage_miatoll-ap1a-userdebug \
-    lineage_miatoll-ap1a-eng
+    genesis_miatoll-ap1a-user \
+    genesis_miatoll-ap1a-userdebug \
+    genesis_miatoll-ap1a-eng

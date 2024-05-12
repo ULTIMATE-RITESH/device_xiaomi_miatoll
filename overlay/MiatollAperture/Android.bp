@@ -4,6 +4,6 @@
 //
 
 runtime_resource_overlay {
-    name: "SM6250LineageDialer",
+    name: "MiatollAperture",
     product_specific: true,
 }
