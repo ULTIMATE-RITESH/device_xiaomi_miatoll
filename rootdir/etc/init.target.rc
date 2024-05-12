@@ -176,5 +176,8 @@ on property:vendor.post_boot.parsed=1
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
 
+    # Enable suspend to idle mode to reduce latency during suspend/resume
+    write /sys/power/mem_sleep "s2idle
+
 on property:ro.boot.multisim_config=*
     setprop persist.radio.multisim.config ${ro.boot.multisim_config}
