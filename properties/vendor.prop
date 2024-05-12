@@ -114,7 +114,7 @@ vendor.qcom.bluetooth.soc=cherokee
 
 # Camera
 camera.disable_zsl_mode=true
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.aperture,org.lineageos.aperture.dev
+vendor.camera.aux.packagelist=co.aospa.sense,com.android.camera,org.lineageos.aperture,org.lineageos.aperture.dev
 
 # Chipset
 ro.soc.manufacturer=QTI
