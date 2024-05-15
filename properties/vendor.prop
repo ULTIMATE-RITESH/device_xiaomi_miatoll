@@ -130,7 +130,7 @@ ro.crypto.volume.options=::v2
 dalvik.vm.dex2oat64.enabled=true
 
 # Dexopt
-pm.dexopt.first-boot=quicken
+pm.dexopt.first-boot=verify
 pm.dexopt.bg-dexopt=everything
 pm.dexopt.boot=verify
 pm.dexopt.install=speed-profile
