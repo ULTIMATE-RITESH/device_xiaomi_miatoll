@@ -80,6 +80,10 @@ DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest.xml
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_miatoll
 TARGET_RECOVERY_DEVICE_MODULES := init_xiaomi_miatoll
 
+# Jemalloc
+MALLOC_SVELTE := true
+MALLOC_SVELTE_FOR_LIBC32 := true
+
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_IMAGE_NAME := Image
