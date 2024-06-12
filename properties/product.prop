@@ -1,3 +1,6 @@
+# Display
+debug.sf.hw=1
+
 # FUSE passthrough
 persist.sys.fuse.passthrough.enable=true
 
