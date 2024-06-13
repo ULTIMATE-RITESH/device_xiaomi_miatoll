@@ -130,6 +130,7 @@ ro.crypto.volume.options=::v2
 dalvik.vm.dex2oat64.enabled=true
 
 # Display
+debug.sf.treat_170m_as_sRGB=1
 ro.hwui.render_ahead=10
 ro.surface_flinger.enable_frame_rate_override=false
 ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
