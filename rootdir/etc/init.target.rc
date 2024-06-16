@@ -67,9 +67,7 @@ on post-fs-data
     mkdir /data/vendor/fpc 0770 system system
     mkdir /data/vendor/goodix 0770 system system
     mkdir /data/vendor/touchpad 0775 system system
-    mkdir /data/vendor/hbtp 0750 system system
     mkdir /persist/qti_fp 0700 system system
-    mkdir /data/vendor/nnhal 0700 system system
     mkdir /data/vendor/mac_addr 0771 system system
 
     # Dolby
@@ -83,9 +81,6 @@ on boot
     chmod 0664 /sys/class/drm/card0-DSI-1/mipi_reg
     chown system system /sys/class/drm/card0-DSI-1/panel_info
     chmod 0444 /sys/class/drm/card0-DSI-1/panel_info
-    chown system system /sys/kernel/hbtp/display_pwr
-    start rmt_storage
-    start rfs_access
 
     chmod 0666 sys/devices/platform/soc/890000.i2c/i2c-1/1-005a/cali
     chmod 0666 sys/devices/platform/soc/890000.i2c/i2c-1/1-005a/cali_save
@@ -160,17 +155,6 @@ on property:init.svc.vendor.charger=running
 
 on property:sys.boot_completed=1
     start qcom-post-boot-atoll
-
-    # Back to default VM settings
-    write /proc/sys/vm/dirty_expire_centisecs 3000
-    write /proc/sys/vm/dirty_background_ratio 10
-
-    # Setup runtime blkio
-    # value for group_idle is us
-    write /dev/blkio/blkio.weight 1000
-    write /dev/blkio/background/blkio.weight 200
-    write /dev/blkio/blkio.group_idle 2000
-    write /dev/blkio/background/blkio.group_idle 0
 
 on property:vendor.post_boot.parsed=1
     # Enable PowerHAL hint processing
