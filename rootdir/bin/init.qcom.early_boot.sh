@@ -27,27 +27,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-export PATH=/vendor/bin
-
-echo "detect" > /sys/class/drm/card0-DSI-1/status
 #For drm based display driver
-vbfile=/sys/module/drm/parameters/vblankoffdelay
-if [ -w $vbfile ]; then
-    echo -1 >  $vbfile
-else
-    log -t DRM_BOOT -p w "file: '$vbfile' or perms doesn't exist"
-fi
-
-function set_perms() {
-    #Usage set_perms <filename> <ownership> <permission>
-    chown -h $2 $1
-    chmod $3 $1
-}
-
-set_perms /sys/devices/virtual/hdcp/msm_hdcp/min_level_change system.graphics 0660
-# allow system_graphics group to access pmic secure_mode node
-set_perms /sys/class/lcd_bias/secure_mode system.graphics 0660
-set_perms /sys/class/leds/wled/secure_mode system.graphics 0660
+echo -1 >  /sys/module/drm/parameters/vblankoffdelay
 
 boot_reason=`cat /proc/sys/kernel/boot_reason`
 reboot_reason=`getprop ro.boot.alarmboot`
@@ -55,12 +36,6 @@ if [ "$boot_reason" = "3" ] || [ "$reboot_reason" = "true" ]; then
     setprop ro.vendor.alarm_boot true
 else
     setprop ro.vendor.alarm_boot false
-fi
-
-# copy GPU frequencies to vendor property
-if [ -f /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies ]; then
-    gpu_freq=`cat /sys/class/kgsl/kgsl-3d0/gpu_available_frequencies` 2> /dev/null
-    setprop vendor.gpu.available_frequencies "$gpu_freq"
 fi
 
 # Workaround for cache
