@@ -5,7 +5,6 @@ audio.offload.min.duration.secs=30
 persist.vendor.cne.feature=1
 
 # Display
-debug.sf.enable_hwc_vds=1
 debug.performance.tuning=1
 
 # DPM
