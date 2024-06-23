@@ -132,6 +132,7 @@ dalvik.vm.dex2oat64.enabled=true
 
 # Display
 debug.sf.auto_latch_unsignaled=0
+debug.sf.enable_gl_backpressure=0
 debug.sf.latch_unsignaled=1
 debug.sf.treat_170m_as_sRGB=1
 ro.hwui.render_ahead=10
